@@ -203,7 +203,8 @@
             "label": "تجوال"
           }
         ],
-        "default": "Amiri"
+        "default": "Tajawal",
+        "info": "خطّ رسمي هندسي بطلب المالك (كان أميري النسخي)"
       },
       {
         "type": "select",
@@ -235,7 +236,7 @@
             "label": "المسيري"
           }
         ],
-        "default": "Almarai"
+        "default": "Tajawal"
       },
       {
         "type": "range",

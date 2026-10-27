@@ -24,20 +24,21 @@
 
 ## المعاينة
 
-`index.html` في الجذر = معاينة الهويّة والتصميم. لفتحها على الجوّال يجب تفعيل GitHub Pages مرّة واحدة:
+| الصفحة | الرابط |
+|---|---|
+| العربيّة (RTL) | `https://tihou74.github.io/AL-SHEIKHA-STYLE/` |
+| الإنجليزيّة (LTR) | `https://tihou74.github.io/AL-SHEIKHA-STYLE/en.html` |
 
-**Settings → Pages → Source: `main` / `/ (root)` → Save**
-
-ثم الرابط: `https://tihou74.github.io/AL-SHEIKHA-STYLE/`
+الصفحتان تتشاركان `assets/site.css` و`assets/site.js`، والتبديل بينهما من زرّ اللغة في الشريط العلوي.
 
 ## الهويّة المعتمدة
 
 | | |
 |---|---|
-| الخلفيّة | `#FAF8F4` أوف وايت |
+| الخلفيّة | `#FFFFFF` أبيض · سطح `#F7F7F6` |
 | الذهبي | `#BA9D66` — **مقيس من بكسلات الشعار** |
-| النصّ | `#1B1A19` |
-| الخطوط | أميري (عناوين) · المرعي (نصوص) · Jost (اللاتيني) |
+| النصّ | `#000000` أسود |
+| الخطوط | **تجوال** للعربيّة (رسمي هندسي) · **Jost** للاتينيّة |
 | الزوايا | صفر — بلا انحناء ولا ظلال |
 
 التفاصيل وأرقام التباين في [`docs/brand-identity.md`](docs/brand-identity.md).
@@ -45,7 +46,7 @@
 ## الفحص قبل النشر
 
 ```bash
-python3 tools/check_page.py index.html
+python3 tools/check_page.py index.html en.html
 ```
 
 يتأكّد أن كل مرجع محلّي موجود، وأن الوسوم متوازنة، وأنّ `letter-spacing`

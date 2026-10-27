@@ -5,178 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>الشيخة ستايل — عبايات</title>
 <meta name="description" content="الشيخة ستايل — عبايات بتطريز يدوي وخياطة على القياس. قطر.">
+<link rel="alternate" hreflang="en" href="en.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400&family=Jost:wght@200;300&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   الشيخة ستايل — النسخة ٣
-   أبيض نقي + خطّ أسود + ذهبي للمسات.
-   لا كريمي ولا بيج ولا رملي — الأسطح المتبادلة رماديّة محايدة.
-   ============================================================ */
-:root{
-  --bg:#FFFFFF;        /* أبيض */
-  --surface:#F7F7F6;   /* أوف وايت محايد — ليس كريمياً */
-  --ink:#000000;       /* أسود — 21:1 */
-  --muted:#666666;     /* رمادي — 5.74:1 على الأبيض */
-  --gold:#BA9D66;      /* ذهبي الشعار — لمسات وحدود وأزرار فقط */
-  --gold-text:#8A6E3A; /* ذهبي يُقرأ كنصّ — 4.80:1 */
-  --hair:#E6E6E4;      /* خطّ شعري محايد */
-  --pad:clamp(18px,5vw,96px);
-  --sec:clamp(64px,12vw,180px);
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:'Almarai',system-ui,sans-serif;font-weight:300;
-  font-size:16px;line-height:2.05;word-spacing:.05em;
-}
-img,video,svg{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-h1,h2,h3,h4{font-family:'Amiri',serif;font-weight:400;line-height:1.28;margin:0}
-
-/* ⚠️ letter-spacing للاتيني فقط — يقطع اتّصال الحروف العربيّة */
-.latin{font-family:'Jost',sans-serif;font-weight:200;letter-spacing:.45em;text-transform:uppercase}
-.latin-label{font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.3em;text-transform:uppercase;
-  font-size:10px;color:var(--gold-text)}
-.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-
-.js [data-reveal]{opacity:0;transform:translateY(26px)}
-.js [data-reveal].in{opacity:1;transform:none;
-  transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.3,1)}
-@media (prefers-reduced-motion:reduce){
-  .js [data-reveal]{opacity:1!important;transform:none!important}
-  *{transition:none!important;animation:none!important}
-}
-
-/* ---------- الشريط العلوي ---------- */
-.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--hair)}
-.hdr-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;
-  padding:clamp(15px,2.6vw,26px) var(--pad)}
-.hdr-s{display:flex;align-items:center;gap:clamp(13px,2vw,24px)}
-.hdr-s.e{justify-content:flex-end}
-.ico{width:19px;height:19px;stroke:var(--ink);stroke-width:1;fill:none;stroke-linecap:round}
-.ibtn{display:flex;align-items:center;gap:6px;padding:4px}
-.ibtn:hover .ico{stroke:var(--gold-text)}
-.cn{font-size:11px;color:var(--muted)}
-/* الشعار نسبته 0.71 (طويل) فلا يصلح لشريط علوي ⇒ الاسم مكتوب هنا، والشعار في البطل والفوتر */
-.wm{text-align:center;line-height:1.18}
-.wm .a{font-family:'Amiri',serif;font-size:clamp(19px,4.4vw,27px)}
-.wm .b{font-size:clamp(6px,1.5vw,8.5px);color:var(--gold-text);margin-top:5px}
-
-/* ---------- القائمة ---------- */
-.nav{border-bottom:1px solid var(--hair)}
-.nav-in{display:flex;gap:clamp(18px,3.6vw,46px);justify-content:center;padding:14px var(--pad);
-  overflow-x:auto;scrollbar-width:none}
-.nav-in::-webkit-scrollbar{display:none}
-.nav a{font-size:13.5px;white-space:nowrap;padding-bottom:4px;
-  border-bottom:1px solid transparent;transition:border-color .6s,color .6s}
-.nav a:hover,.nav a.on{border-color:var(--gold);color:var(--gold-text)}
-
-/* ---------- البطل: الفيديو ---------- */
-.hero{position:relative;height:clamp(480px,92vh,920px);overflow:hidden;background:#111}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* تعتيم من الأسفل فقط — ليُقرأ النصّ بلا أن يُحجب الفيديو */
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(to top,rgba(0,0,0,.46),rgba(0,0,0,.10) 46%,transparent 72%)}
-.hero-frame{position:absolute;inset:clamp(13px,2.4vw,28px);z-index:3;pointer-events:none;
-  border:1px solid rgba(255,255,255,.4)}
-.hero-in{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;text-align:center;padding:42px 22px}
-.hero-logo{width:clamp(120px,15vw,200px)}
-.hero-sub{color:#fff;font-size:clamp(13px,1.9vw,16px);margin-top:22px;letter-spacing:0}
-.hero-cta{display:inline-block;margin-top:28px;color:#fff;font-size:12.5px;
-  padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.75);transition:border-color .6s}
-.hero-cta:hover{border-color:var(--gold)}
-
-/* ---------- أقسام ---------- */
-.sec{padding:var(--sec) var(--pad)}
-.sec.sf{background:var(--surface)}
-.head{text-align:center;max-width:62ch;margin:0 auto clamp(40px,6vw,86px)}
-.head h2{font-size:clamp(26px,5.2vw,56px);margin-top:18px}
-.head p{color:var(--muted);font-size:clamp(14px,1.6vw,16px);margin:22px auto 0;max-width:48ch}
-.hair{width:1px;height:clamp(34px,6vw,70px);background:var(--gold);margin:0 auto clamp(26px,4vw,44px)}
-
-/* ---------- تحريري: صورة + نصّ ---------- */
-.edi{display:grid;grid-template-columns:1fr;align-items:center;gap:0}
-.edi-img{position:relative;overflow:hidden;background:var(--surface);aspect-ratio:4/5}
-.edi-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.3,1)}
-.edi:hover .edi-img img{transform:scale(1.03)}
-.edi-t{padding:clamp(44px,8vw,112px) var(--pad);text-align:center}
-.edi-t h2{font-size:clamp(23px,3.6vw,42px);margin-top:18px}
-.edi-t p{color:var(--muted);font-size:15px;margin:22px auto 0;max-width:42ch}
-
-/* زرّ أسود بنصّ أبيض — 21:1، وهو أرقى من الزرّ الملوّن */
-.btn{display:inline-block;margin-top:32px;background:var(--ink);color:#fff;
-  padding:16px 44px;font-size:12.5px;border:1px solid var(--ink);transition:background .5s,color .5s}
-.btn:hover{background:#fff;color:var(--ink)}
-.btn-o{background:none;color:var(--ink)}
-.btn-o:hover{background:var(--ink);color:#fff}
-
-/* ---------- ثلاثيّة صور بعرض الصفحة ---------- */
-.trip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair)}
-.trip a{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--surface)}
-.trip img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.3,1)}
-.trip a:hover img{transform:scale(1.045)}
-.trip span{position:absolute;inset-inline:0;bottom:0;padding:18px 14px;color:#fff;font-size:13px;
-  text-align:center;background:linear-gradient(to top,rgba(0,0,0,.5),transparent)}
-
-/* ---------- شبكة المنتجات ---------- */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(22px,3.4vw,54px) clamp(14px,2.2vw,32px)}
-.card .ph{position:relative;overflow:hidden;aspect-ratio:2/3;background:var(--surface)}
-.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.3,1)}
-.card:hover .ph img{transform:scale(1.045)}
-.card-b{padding:18px 2px 0;text-align:center}
-.card-n{font-family:'Amiri',serif;font-size:clamp(16px,1.9vw,21px)}
-.card-m{font-size:11.5px;color:var(--muted);margin-top:4px}
-.card-p{margin-top:10px;font-size:13.5px}
-.card-p .was{color:var(--muted);text-decoration:line-through;margin-inline-start:9px;font-size:12px}
-
-/* ---------- اقتباس ---------- */
-.quote{padding:var(--sec) var(--pad);text-align:center;background:var(--bg)}
-.quote q{font-family:'Amiri',serif;font-size:clamp(21px,3.6vw,40px);display:block;
-  max-width:28ch;margin:0 auto;quotes:none}
-.quote .sig{color:var(--muted);font-size:12px;margin-top:26px}
-
-/* ---------- النشرة ---------- */
-.news{padding:var(--sec) var(--pad);text-align:center;background:var(--surface)}
-.news h2{font-size:clamp(20px,3vw,34px);margin-top:18px}
-.news form{display:flex;max-width:430px;margin:30px auto 0;border-bottom:1px solid #D8D8D6}
-.news input{flex:1;min-width:0;padding:14px 2px;border:0;background:none;font:inherit;font-size:14px;color:var(--ink)}
-.news input:focus{outline:0}
-.news input::placeholder{color:#9B9B9B}
-.news button{padding:14px 8px;font-size:11.5px;color:var(--gold-text)}
-.news small{display:block;color:var(--muted);font-size:12px;margin-top:18px}
-
-/* ---------- الفوتر ---------- */
-footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,8vw,104px) var(--pad) 30px}
-.fc{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(30px,4vw,56px);max-width:1240px;margin:0 auto}
-.fc h4{font-size:15.5px;color:var(--gold-text);margin:0 0 14px;font-family:'Amiri',serif;font-weight:400}
-.fc a{display:block;font-size:13px;color:var(--muted);padding:5px 0;transition:color .4s}
-.fc a:hover{color:var(--ink)}
-.flogo{text-align:center;margin:clamp(44px,6vw,80px) auto 0;max-width:1240px}
-.flogo img{width:104px;margin:0 auto}
-.fsoc{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin-top:28px}
-.fsoc a{font-size:12px;color:var(--muted)}
-.fsoc a:hover{color:var(--gold-text)}
-.fbar{border-top:1px solid var(--hair);margin:32px auto 0;padding-top:22px;display:flex;flex-wrap:wrap;
-  gap:12px;justify-content:space-between;font-size:11.5px;color:var(--muted);max-width:1240px}
-
-@media (min-width:760px){
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .fc{grid-template-columns:repeat(4,1fr)}
-  .edi{grid-template-columns:1fr 1fr}
-  .edi-img{aspect-ratio:auto;height:100%;min-height:clamp(420px,56vw,760px)}
-  .edi.rev .edi-img{order:2}
-}
-@media (max-width:759px){
-  .trip{grid-template-columns:1fr}
-  .trip a{aspect-ratio:4/5}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=4">
 </head>
 <body>
 
@@ -185,8 +18,9 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
     <div class="hdr-s">
       <button class="ibtn" aria-label="القائمة"><svg class="ico" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
       <button class="ibtn" aria-label="البحث"><svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg></button>
+      <a class="lang is-latin" href="en.html" hreflang="en">EN</a>
     </div>
-    <a href="#" class="wm">
+    <a href="index.html" class="wm">
       <div class="a">الشيخة ستايل</div>
       <div class="b latin">AL SHEIKHA STYLE</div>
     </a>
@@ -203,14 +37,12 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
 <nav class="nav">
   <div class="nav-in">
     <a href="#collection" class="on">المجموعة</a>
-    <a href="#collection">عبايات مطرّزة</a>
+    <a href="#collection">مطرّزة</a>
     <a href="#collection">سادة</a>
-    <a href="#custom">خياطة على القياس</a>
-    <a href="#">تواصلي</a>
+    <a href="#custom">على القياس</a>
   </div>
 </nav>
 
-<!-- ======== البطل: الفيديو ======== -->
 <section class="hero">
   <video autoplay muted loop playsinline preload="metadata"
          poster="brand/photos/studio-full-1.jpg" aria-label="عبايات الشيخة ستايل">
@@ -220,85 +52,74 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
   <div class="hero-in">
     <img class="hero-logo" src="brand/logo-gold-transparent.png" alt="الشيخة ستايل">
     <p class="hero-sub">تطريز يدوي · خياطة على القياس</p>
-    <a href="#collection" class="hero-cta">شاهدي المجموعة</a>
+    <a href="#collection" class="hero-cta">المجموعة</a>
   </div>
 </section>
 
-<!-- ======== مقدّمة ======== -->
 <section class="sec">
   <div class="head" data-reveal>
     <div class="hair"></div>
     <div class="latin-label">Al Sheikha Style</div>
-    <h2>تطريزٌ يُنفَّذ باليد على عباية تُقاس عليك</h2>
-    <p>
-      كل قطعة تُخاط على مقاس صاحبتها في ورشتنا في قطر.
-      أقمشة مختارة، وتطريز يُنفَّذ غرزةً غرزة — لا نسخ جاهزة.
-    </p>
+    <h2>تُخاط على مقاسك</h2>
   </div>
 </section>
 
-<!-- ======== تحريري ١ ======== -->
 <section class="edi">
   <div class="edi-img">
-    <img src="brand/photos/studio-full-1.jpg" alt="عباية مطرّزة بالورد الملوّن">
+    <img src="brand/photos/studio-full-1.jpg" alt="عباية الورد الملوّن">
   </div>
   <div class="edi-t" data-reveal>
     <div class="hair"></div>
     <div class="latin-label">Signature</div>
-    <h2>عباية الورد الملوّن</h2>
-    <p>
-      تطريز زهري بخيوط فيروزيّة وعنّابيّة وذهبيّة على كريب أسود،
-      مع دانتيل على الصدر والأكمام. قطعة واحدة لا تتكرّر بنفس التفصيل.
-    </p>
+    <h2>الورد الملوّن</h2>
+    <p>تطريز زهري على كريب أسود، مع دانتيل.</p>
     <div><a href="#collection" class="btn">اطلبيها</a></div>
   </div>
 </section>
 
-<!-- ======== ثلاثيّة ======== -->
 <div class="trip">
-  <a href="#collection"><img src="brand/photos/studio-detail-1.jpg" alt="تفاصيل التطريز"><span>تفاصيل التطريز</span></a>
-  <a href="#collection"><img src="brand/photos/detail-rose-sleeve.jpg" alt="وردة على الكمّ"><span>وردة الكمّ</span></a>
+  <a href="#collection"><img src="brand/photos/studio-detail-1.jpg" alt="التطريز"><span>التطريز</span></a>
+  <a href="#collection"><img src="brand/photos/detail-rose-sleeve.jpg" alt="وردة الكمّ"><span>وردة الكمّ</span></a>
   <a href="#collection"><img src="brand/photos/shop-1.jpg" alt="جاكار الورد"><span>جاكار الورد</span></a>
 </div>
 
-<!-- ======== المجموعة ======== -->
 <section class="sec" id="collection">
   <div class="head" data-reveal>
     <div class="hair"></div>
     <div class="latin-label">Collection</div>
     <h2>المجموعة</h2>
-    <p>الأسعار بالريال القطري · التوصيل داخل قطر</p>
+    <p>بالريال القطري</p>
   </div>
 
   <div class="grid">
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/studio-full-1.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية الورد الملوّن</div>
-        <div class="card-m">كريب · دانتيل · تطريز يدوي</div>
+        <div class="card-n">الورد الملوّن</div>
+        <div class="card-m">كريب · دانتيل</div>
         <div class="card-p num">١٬٦٥٠ ر.ق</div>
       </div>
     </a>
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/detail-rose-sleeve.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية وردة الكمّ</div>
-        <div class="card-m">كريب أسود · وردة مطرّزة</div>
+        <div class="card-n">وردة الكمّ</div>
+        <div class="card-m">كريب أسود</div>
         <div class="card-p num">١٬٢٨٠ ر.ق</div>
       </div>
     </a>
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/shop-1.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية جاكار الورد</div>
-        <div class="card-m">جاكار نافر · كمّ واسع</div>
+        <div class="card-n">جاكار الورد</div>
+        <div class="card-m">جاكار نافر</div>
         <div class="card-p num">٩٨٠ ر.ق</div>
       </div>
     </a>
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/shop-2.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية الشيخة</div>
+        <div class="card-n">الشيخة</div>
         <div class="card-m">تفصيل خاصّ</div>
         <div class="card-p num">١٬١٥٠ ر.ق</div>
       </div>
@@ -306,7 +127,7 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/shop-3.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية مناسبات</div>
+        <div class="card-n">مناسبات</div>
         <div class="card-m">تفصيل خاصّ</div>
         <div class="card-p num">١٬٣٩٠ ر.ق</div>
       </div>
@@ -314,8 +135,8 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
     <a href="#" class="card" data-reveal>
       <div class="ph"><img src="brand/photos/studio-detail-1.jpg" alt=""></div>
       <div class="card-b">
-        <div class="card-n">عباية التطريز الزهري</div>
-        <div class="card-m">كريب · تطريز ملوّن</div>
+        <div class="card-n">التطريز الزهري</div>
+        <div class="card-m">كريب · تطريز</div>
         <div class="card-p num">١٬٤٨٠ ر.ق</div>
       </div>
     </a>
@@ -324,41 +145,28 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
   <div style="text-align:center"><a href="#" class="btn btn-o">كل العبايات</a></div>
 </section>
 
-<!-- ======== اقتباس ======== -->
-<section class="quote" data-reveal>
-  <div class="hair"></div>
-  <q>ما يُخاط على مقاسك لا يُشبه ما يُشترى جاهزاً</q>
-  <div class="sig">الشيخة ستايل · قطر</div>
-</section>
-
-<!-- ======== الخياطة على القياس ======== -->
 <section class="edi rev" id="custom">
   <div class="edi-img">
-    <img src="brand/photos/studio-detail-1.jpg" alt="الخياطة على القياس">
+    <img src="brand/photos/studio-detail-1.jpg" alt="خياطة على القياس">
   </div>
   <div class="edi-t" data-reveal>
     <div class="hair"></div>
     <div class="latin-label">Made to measure</div>
-    <h2>خياطة على القياس</h2>
-    <p>
-      أرسلي قياساتك مع الطلب — الطول والكتف وطول الكمّ — وتُخاط العباية
-      على مقاسك. وإن احتجتِ مساعدة، نرشدك خطوة بخطوة على واتساب.
-    </p>
-    <div><a href="#" class="btn">ابدئي بالقياس</a></div>
+    <h2>على القياس</h2>
+    <p>أرسلي قياساتك مع الطلب.</p>
+    <div><a href="#" class="btn">ابدئي</a></div>
   </div>
 </section>
 
-<!-- ======== النشرة ======== -->
 <section class="news">
   <div data-reveal>
     <div class="hair"></div>
     <div class="latin-label">Newsletter</div>
-    <h2>كوني أوّل من يرى الجديد</h2>
+    <h2>الجديد أوّلاً</h2>
     <form onsubmit="event.preventDefault();alert('هذه معاينة — التسجيل يعمل بعد الربط بشوبيفاي');">
       <input type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني" required>
       <button type="submit">اشتركي</button>
     </form>
-    <small>قطع محدودة، ونُخبرك قبل أن تنتهي.</small>
   </div>
 </section>
 
@@ -366,19 +174,15 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
   <div class="fc">
     <div>
       <h4>المتجر</h4>
-      <a href="#collection">المجموعة</a><a href="#">عبايات مطرّزة</a><a href="#">سادة</a><a href="#custom">خياطة على القياس</a>
+      <a href="#collection">المجموعة</a><a href="#collection">مطرّزة</a><a href="#custom">على القياس</a>
     </div>
     <div>
       <h4>خدمة العميلات</h4>
-      <a href="#">تواصلي معنا</a><a href="#">دليل القياسات</a><a href="#">الشحن والتوصيل</a><a href="#">الاستبدال والإرجاع</a>
+      <a href="#">تواصلي معنا</a><a href="#">القياسات</a><a href="#">الشحن والإرجاع</a>
     </div>
     <div>
       <h4>الشيخة ستايل</h4>
-      <a href="#">قصّتنا</a><a href="#">الورشة والخياطة</a><a href="#">فروعنا</a><a href="#">الشيخة قروب</a>
-    </div>
-    <div>
-      <h4>أحكام</h4>
-      <a href="#">الشروط والأحكام</a><a href="#">سياسة الخصوصيّة</a><a href="#">سياسة الإرجاع</a><a href="#">طرق الدفع</a>
+      <a href="#">قصّتنا</a><a href="#">فروعنا</a><a href="#">الشروط والخصوصيّة</a>
     </div>
   </div>
 
@@ -386,41 +190,15 @@ footer{background:var(--bg);border-top:1px solid var(--hair);padding:clamp(50px,
 
   <div class="fsoc">
     <a href="#">إنستقرام</a><a href="#">تيك توك</a><a href="#">سناب شات</a><a href="#">واتساب</a>
+    <a class="lang is-latin" href="en.html" hreflang="en">EN</a>
   </div>
 
   <div class="fbar">
-    <span>© <span class="num">2026</span> الشيخة ستايل — جميع الحقوق محفوظة</span>
-    <span>قطر · <span class="num">QAR</span> ر.ق · توصيل داخل قطر</span>
+    <span>© <span class="num">2026</span> الشيخة ستايل</span>
+    <span>قطر · <span class="num">QAR</span> ر.ق</span>
   </div>
 </footer>
 
-<script>
-document.documentElement.classList.remove('no-js');
-document.documentElement.classList.add('js');
-
-/* من يطلب تقليل الحركة: تُعرض اللقطة الثابتة ولا يُشغَّل الفيديو */
-(function () {
-  var v = document.querySelector('.hero video');
-  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    v.removeAttribute('autoplay');
-    try { v.pause(); } catch (e) {}
-  }
-})();
-
-/* ظهور تدريجي — وبلا IntersectionObserver يظهر الكلّ فوراً */
-(function () {
-  var items = document.querySelectorAll('[data-reveal]');
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  items.forEach(function (el) { io.observe(el); });
-})();
-</script>
+<script src="assets/site.js?v=4"></script>
 </body>
 </html>
