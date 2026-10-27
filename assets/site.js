@@ -9,9 +9,23 @@
 
   var v = document.querySelector('.hero video');
 
+  /* هل الشبكة أو إعداد الجهاز يطلب تقليل البيانات؟ */
+  function saveData() {
+    var c = navigator.connection || navigator.webkitConnection;
+    if (!c) return false;
+    if (c.saveData) return true;
+    return /^(slow-2g|2g|3g)$/.test(c.effectiveType || '');
+  }
+
   /* من يطلب تقليل الحركة: تُعرض اللقطة الثابتة ولا يُشغَّل الفيديو */
   if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     v.removeAttribute('autoplay');
+    try { v.pause(); } catch (e) {}
+  } else if (v && saveData()) {
+    /* باقة محدودة أو شبكة بطيئة: تُعرض اللقطة الثابتة ولا يُنزَّل الفيديو
+       (٢٫٧ ميجا على شبكة ضعيفة = شاشة فارغة طويلاً) */
+    v.removeAttribute('autoplay');
+    v.preload = 'none';
     try { v.pause(); } catch (e) {}
   } else if (v) {
     /* مقطع أقصر من ٥ ثوانٍ يدور في حلقة فيبدو تكراره كأنه خلل.
