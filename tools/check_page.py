@@ -138,6 +138,43 @@ def check_arabic_typography(sources):
     return errors, notes, blocks
 
 
+def check_videos(path: Path):
+    """كل فيديو محلّي مُشار إليه يجب أن يكون ترميزه صالحاً للويب.
+
+    فيديو HEVC يُرفَض في كروم وفايرفوكس فيظهر **مستطيل أسود بلا رسالة**
+    ولا أثر في أي سجلّ — ولا يكتشفه إلا المالك على شاشته.
+    """
+    sys.path.insert(0, str(Path(__file__).parent))
+    try:
+        from mp4_info import walk, VIDEO_OK, VIDEO_BAD
+    except Exception as e:
+        return [f'تعذّر تحميل فاحص الفيديو: {e}'], 0
+
+    html = path.read_text(encoding='utf-8')
+    srcs = [s for s in re.findall(r'<source[^>]+src\s*=\s*["\']([^"\']+)["\']', html)
+            if not s.startswith(EXTERNAL)]
+    problems, checked = [], 0
+    for s in srcs:
+        f = path.parent / s.split('?')[0]
+        if not f.exists():
+            continue              # المراجع المفقودة يتولّاها فحص المراجع
+        checked += 1
+        found = {}
+        try:
+            walk(f.read_bytes(), 0, f.stat().st_size, found)
+        except Exception as e:
+            problems.append(f'{s}: تعذّرت قراءة البنية ({e})')
+            continue
+        fmts = found.get('formats', [])
+        bad = [x for x in fmts if x in VIDEO_BAD]
+        good = [x for x in fmts if x in VIDEO_OK]
+        if bad:
+            problems.append(f'{s}: {VIDEO_BAD[bad[0]]}')
+        elif not good:
+            problems.append(f'{s}: لم يوجد مسار فيديو بترميز معروف')
+    return problems, checked
+
+
 def load_forbidden(root: Path):
     f = root / 'tools' / 'forbidden-colors.txt'
     if not f.exists():
@@ -220,6 +257,15 @@ def main(argv):
             print(f'✓ لا مخالفات عربيّة ({blocks} قاعدة في: {srcs})')
         for n in notes:
             print('⚠ ملاحظة:', n)
+
+        vidp, nvid = check_videos(t)
+        if vidp:
+            print('✗ مشاكل فيديو:')
+            for v in vidp:
+                print('   -', v)
+            failed = True
+        elif nvid:
+            print(f'✓ ترميز الفيديو صالح للويب ({nvid} ملفّاً)')
 
         rules = load_forbidden(root)
         if not rules:

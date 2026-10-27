@@ -7,11 +7,22 @@
   root.classList.remove('no-js');
   root.classList.add('js');
 
-  /* من يطلب تقليل الحركة: تُعرض اللقطة الثابتة ولا يُشغَّل الفيديو */
   var v = document.querySelector('.hero video');
+
+  /* من يطلب تقليل الحركة: تُعرض اللقطة الثابتة ولا يُشغَّل الفيديو */
   if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     v.removeAttribute('autoplay');
     try { v.pause(); } catch (e) {}
+  } else if (v) {
+    /* مقطع أقصر من ٥ ثوانٍ يدور في حلقة فيبدو تكراره كأنه خلل.
+       إبطاؤه يُطيل الدورة ويعطي إحساس الحركة البطيئة — وهو أرقى.
+       الإبطاء يُقاس على المدّة الحقيقيّة لا يُفترض. */
+    v.addEventListener('loadedmetadata', function () {
+      var d = v.duration;
+      if (isFinite(d) && d > 0 && d < 5) {
+        try { v.playbackRate = Math.max(0.45, d / 5); } catch (e) {}
+      }
+    });
   }
 
   /* ظهور تدريجي — وبلا IntersectionObserver يظهر الكلّ فوراً */
