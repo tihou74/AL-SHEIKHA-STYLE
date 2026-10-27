@@ -1,0 +1,147 @@
+{
+  "general": {
+    "a11y": {
+      "skip_to_content": "تخطَّ إلى المحتوى",
+      "close": "إغلاق",
+      "menu": "القائمة",
+      "search": "البحث",
+      "cart": "سلّة المشتريات",
+      "previous": "السابق",
+      "next": "التالي",
+      "loading": "جارٍ التحميل"
+    },
+    "pagination": {
+      "label": "تصفّح الصفحات",
+      "page": "صفحة {{ page }}",
+      "previous": "السابق",
+      "next": "التالي"
+    },
+    "search": {
+      "title": "البحث",
+      "placeholder": "ابحث عن عباية...",
+      "submit": "ابحث",
+      "results_with_count": {
+        "one": "نتيجة واحدة",
+        "other": "{{ count }} نتيجة"
+      },
+      "no_results": "لا توجد نتائج لـ \"{{ terms }}\"",
+      "no_results_hint": "جرّب كلمة أقصر، أو تصفّح الأقسام."
+    },
+    "newsletter": {
+      "email": "بريدك الإلكتروني",
+      "submit": "اشتركي",
+      "success": "تمّ التسجيل. شكراً لك."
+    },
+    "not_found": {
+      "title": "الصفحة غير موجودة",
+      "subtitle": "الرابط الذي فتحتيه لم نجده. قد تكون العباية بيعت أو تغيّر رابطها.",
+      "link": "عودة إلى الرئيسيّة"
+    },
+    "password_page": {
+      "title": "المتجر قادم قريباً",
+      "login_label": "كلمة الدخول",
+      "login_submit": "ادخل",
+      "login_error": "كلمة الدخول غير صحيحة",
+      "enter_store": "الدخول بكلمة المرور",
+      "admin_link": "هل أنت صاحب المتجر؟ سجّل الدخول من هنا"
+    },
+    "share": {
+      "label": "شاركي",
+      "copy_link": "انسخي الرابط",
+      "copied": "تمّ نسخ الرابط"
+    }
+  },
+  "header": {
+    "cart_count": {
+      "one": "قطعة واحدة في السلّة",
+      "other": "{{ count }} قطع في السلّة"
+    },
+    "menu": "القائمة",
+    "home": "الرئيسيّة"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "أضيفي إلى السلّة",
+      "sold_out": "نفدت الكميّة",
+      "unavailable": "غير متاح",
+      "choose_option": "اختاري {{ option }}",
+      "price": "السعر",
+      "regular_price": "السعر الأصلي",
+      "sale_price": "السعر بعد الخصم",
+      "sale_badge": "خصم {{ percent }}%",
+      "save_amount": "توفير {{ amount }}",
+      "quantity": "الكميّة",
+      "increase": "زيادة الكميّة",
+      "decrease": "تقليل الكميّة",
+      "size_guide": "دليل القياسات",
+      "vendor": "الماركة",
+      "sku": "رقم الموديل",
+      "description": "الوصف",
+      "in_stock": "متاح",
+      "low_stock": "بقيت قطع قليلة",
+      "out_of_stock": "غير متاح حالياً",
+      "whatsapp_ask": "اسألي عنها على واتساب",
+      "whatsapp_message": "السلام عليكم، أسأل عن: {{ title }} — {{ url }}",
+      "view_full_details": "كل التفاصيل",
+      "no_variant_selected": "اختاري الخيارات أولاً",
+      "variant_unavailable": "هذا الخيار غير متاح"
+    },
+    "card": {
+      "from_price": "يبدأ من",
+      "colors_available": {
+        "one": "لون واحد",
+        "other": "{{ count }} ألوان"
+      }
+    }
+  },
+  "collection": {
+    "all_products": "كل العبايات",
+    "empty": "لا توجد منتجات في هذا القسم بعد.",
+    "empty_filtered": "لا توجد منتجات تطابق الترشيح.",
+    "product_count": {
+      "one": "منتج واحد",
+      "other": "{{ count }} منتج"
+    },
+    "filters": {
+      "title": "ترشيح",
+      "apply": "اعرضي النتائج",
+      "clear": "امحي الترشيح",
+      "clear_all": "امحي الكل",
+      "sort_by": "الترتيب",
+      "price_from": "من",
+      "price_to": "إلى"
+    }
+  },
+  "cart": {
+    "title": "سلّة المشتريات",
+    "empty": "سلّتك فارغة",
+    "empty_cta": "تصفّحي العبايات",
+    "item": "القطعة",
+    "price": "السعر",
+    "quantity": "الكميّة",
+    "total": "المجموع",
+    "subtotal": "المجموع الجزئي",
+    "remove": "أزيلي",
+    "note": "ملاحظة على الطلب",
+    "note_placeholder": "تعليمات خاصّة بالطلب أو العنوان",
+    "checkout": "إتمام الطلب",
+    "continue_shopping": "متابعة التصفّح",
+    "update": "تحديث",
+    "added": "أُضيفت إلى السلّة",
+    "measurements": "القياسات"
+  },
+  "footer": {
+    "newsletter_title": "جديد العبايات أولاً",
+    "newsletter_text": "اشتركي ليصلك الجديد والتخفيضات.",
+    "follow_us": "تابعينا",
+    "quick_links": "روابط سريعة",
+    "copyright": "جميع الحقوق محفوظة",
+    "payment_methods": "طرق الدفع"
+  },
+  "blog": {
+    "read_more": "اقرئي المزيد",
+    "posted_on": "نُشر في",
+    "by_author": "بقلم {{ author }}",
+    "all_articles": "كل المقالات"
+  }
+}

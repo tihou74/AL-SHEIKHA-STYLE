@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الشيخة ستايل — معاينة الهويّة</title>
+<meta name="description" content="معاينة هويّة وتصميم متجر الشيخة ستايل للعبايات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400;700&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   الشيخة ستايل — معاينة الهويّة
+   الألوان مقيسة من بكسلات الشعار (انظر docs/brand-identity.md)
+   =========================================================== */
+:root{
+  --bg:#FAF8F4;          /* أوف وايت — الخيار (أ) المعتمد */
+  --ink:#1B1A19;         /* نصّ أساسي — تباين 16.38:1 */
+  --muted:#6E6A66;       /* نصّ ثانوي — 5.06:1 */
+  --gold:#BA9D66;        /* ذهبي الشعار المقيس — للزينة والخلفيّات */
+  --gold-text:#8A6E3A;   /* ذهبي للنصّ على فاتح — 4.53:1 */
+  --line:#E6E1D8;        /* حدود رقيقة */
+  --dark:#1B1A19;        /* أقسام داكنة */
+  --dark-ink:#F5F2EC;
+  --pad:clamp(16px,4vw,64px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Almarai',system-ui,sans-serif; font-weight:300;
+  font-size:16px; line-height:1.9;
+  /* العربيّة تُعطى سعةً بالكلمات لا بالحروف */
+  word-spacing:.04em;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+/* العناوين: نسخ عربي (أميري) — نظير السيريف اللاتيني في الفخامة */
+h1,h2,h3,.display{font-family:'Amiri',serif;font-weight:400;line-height:1.35;margin:0}
+
+/* ⚠️ تباعد الحروف للاتيني فقط — يُفسد اتّصال الحروف العربيّة */
+.latin{font-family:'Jost',sans-serif;font-weight:200;letter-spacing:.34em;text-transform:uppercase}
+.latin-sm{font-family:'Jost',sans-serif;font-weight:300;letter-spacing:.18em;text-transform:uppercase;font-size:11px}
+
+/* كل الأرقام جدوليّة لتتراصف الفواصل عمودياً */
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* بلا زوايا دائريّة ولا ظلال ولا تدرّجات — انضباط الفخامة */
+
+/* ---------- شريط المعاينة ---------- */
+.flag{background:#2B2A28;color:#C9C4BA;font-size:12px;text-align:center;padding:7px var(--pad)}
+.flag b{color:var(--gold);font-weight:400}
+
+/* ---------- شريط إعلاني ---------- */
+.announce{background:var(--dark);color:var(--dark-ink);text-align:center;padding:11px var(--pad);font-size:13px}
+.announce span{color:var(--gold)}
+
+/* ---------- الشريط العلوي ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.hdr-in{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:14px var(--pad)}
+.hdr-side{display:flex;align-items:center;gap:18px}
+.hdr-side.end{justify-content:flex-end}
+.ico{width:21px;height:21px;stroke:var(--ink);stroke-width:1.2;fill:none}
+.iconbtn{display:flex;align-items:center;gap:7px;padding:4px}
+.cart-n{font-size:11px;color:var(--muted)}
+
+/* قفل الاسم: الشعار الحالي طويل (نسبة 0.71) فلا يصلح لشريط علوي.
+   فالشريط يحمل الاسم مكتوباً، والشعار الكامل في البطل والفوتر. */
+.wordmark{text-align:center;line-height:1.25}
+.wordmark .ar{font-family:'Amiri',serif;font-size:clamp(20px,4.6vw,27px);color:var(--ink)}
+.wordmark .en{font-size:clamp(7px,1.7vw,9.5px);color:var(--gold-text);margin-top:3px}
+
+/* ---------- قائمة التصفّح ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--bg)}
+.nav-in{display:flex;gap:clamp(14px,3vw,38px);justify-content:center;padding:13px var(--pad);
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-in::-webkit-scrollbar{display:none}
+.nav a{font-size:14px;white-space:nowrap;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s}
+.nav a:hover{border-color:var(--gold);color:var(--gold-text)}
+.nav a.on{border-color:var(--gold)}
+
+/* ---------- البطل المقسوم ---------- */
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:clamp(420px,74vh,760px)}
+.half{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+  padding:clamp(28px,5vw,64px) 20px;overflow:hidden}
+.half.dark{background:var(--dark);color:var(--dark-ink)}
+.half.light{background:#F2EEE6;color:var(--ink)}
+/* النقشة خلفيّةً — فنّ المحل نفسه، لا صورة مستعارة */
+.half .motif{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.half .motif img{height:118%;width:auto;max-width:none;opacity:.5}
+.half.light .motif img{opacity:.42}
+.half-body{position:relative;text-align:center}
+.half-ttl{font-size:clamp(20px,3.4vw,33px)}
+.half-cta{display:inline-block;margin-top:14px;font-size:13px;padding-bottom:3px;border-bottom:1px solid currentColor}
+/* بلا letter-spacing: النصّ عربي والتباعد يقطع اتّصال حروفه */
+.half .ph{position:relative;margin-bottom:auto;font-size:11px;word-spacing:.12em;opacity:.65;
+  border:1px dashed currentColor;padding:6px 12px}
+
+/* الشعار في منتصف البطل — فوق النصفين، كما في المرجع */
+.hero-logo{position:absolute;inset-inline-start:50%;top:46%;transform:translate(50%,-50%);
+  z-index:3;width:clamp(120px,17vw,215px);filter:drop-shadow(0 1px 14px rgba(0,0,0,.18))}
+
+/* ---------- أقسام ---------- */
+.sec{padding:clamp(44px,7vw,96px) var(--pad)}
+.sec-head{text-align:center;margin-bottom:clamp(26px,4vw,52px)}
+.sec-head h2{font-size:clamp(22px,3.6vw,34px)}
+.sec-head p{color:var(--muted);font-size:14px;margin:9px 0 0}
+.rule{width:46px;height:1px;background:var(--gold);margin:16px auto 0}
+
+/* ---------- شبكة المنتجات ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,2.2vw,30px)}
+.card{display:block}
+.card-img{position:relative;aspect-ratio:2/3;background:#EFEBE2;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+.card-img img.m{height:88%;width:auto;max-width:none;opacity:.5;transition:transform .7s ease}
+.card:hover .card-img img.m{transform:scale(1.05)}
+.card-tag{position:absolute;top:0;inset-inline-start:0;background:var(--dark);color:var(--gold);
+  font-size:10.5px;padding:5px 11px;word-spacing:.1em}
+.card-ph{position:absolute;bottom:9px;inset-inline:9px;font-size:10px;color:var(--muted);
+  border:1px dashed var(--line);padding:4px;text-align:center;background:rgba(250,248,244,.82)}
+.card-body{padding:13px 2px 0;text-align:center}
+.card-name{font-family:'Amiri',serif;font-size:17px}
+.card-meta{font-size:12px;color:var(--muted);margin-top:2px}
+.card-price{margin-top:6px;font-size:14px}
+.card-price .was{color:var(--muted);text-decoration:line-through;margin-inline-start:8px;font-size:12.5px}
+.swatches{display:flex;gap:5px;justify-content:center;margin-top:9px}
+.sw{width:11px;height:11px;border:1px solid var(--line);border-radius:50%}
+
+/* ---------- قسم تحريري ---------- */
+.edi{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;border-block:1px solid var(--line)}
+.edi-img{background:#F2EEE6;min-height:clamp(260px,42vw,520px);display:flex;align-items:center;justify-content:center;position:relative}
+.edi-img img{height:76%;width:auto;max-width:none;opacity:.55}
+.edi-txt{padding:clamp(28px,5vw,74px);display:flex;flex-direction:column;justify-content:center;text-align:center}
+.edi-txt h2{font-size:clamp(21px,3.3vw,31px)}
+.edi-txt p{color:var(--muted);font-size:14.5px;margin:14px auto 0;max-width:46ch}
+
+/* زرّ ذهبي: نصّه داكن لا أبيض — أبيض عليه 2.59:1 ولا يُقرأ */
+.btn{display:inline-block;margin-top:24px;background:var(--gold);color:var(--ink);
+  padding:14px 34px;font-size:13.5px;font-weight:400;border:1px solid var(--gold);transition:background .25s}
+.btn:hover{background:#A98B55}
+.btn-ghost{background:none;color:var(--ink);border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-dark{background:var(--dark);color:var(--dark-ink);border-color:var(--dark)}
+
+/* ---------- شرائط الصنعة ---------- */
+.craft{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,44px);text-align:center}
+.craft h3{font-size:18px;margin-bottom:7px}
+.craft p{color:var(--muted);font-size:13.5px;margin:0}
+.craft .band{height:62px;margin:0 auto 14px;opacity:.85}
+
+/* ---------- النشرة ---------- */
+.news{background:#F2EEE6;padding:clamp(40px,6vw,82px) var(--pad);text-align:center}
+.news h2{font-size:clamp(19px,2.9vw,27px)}
+.news form{display:flex;gap:10px;max-width:470px;margin:22px auto 0;flex-wrap:wrap}
+.news input{flex:1 1 210px;min-width:0;padding:14px 16px;border:1px solid var(--line);background:#fff;
+  font:inherit;font-size:14px;color:var(--ink)}
+.news input::placeholder{color:#9A958D}
+.news button{padding:14px 30px;background:var(--dark);color:var(--dark-ink);font-size:13.5px}
+.news small{display:block;color:var(--muted);font-size:12px;margin-top:12px}
+
+/* ---------- الفوتر ---------- */
+footer{background:var(--dark);color:var(--dark-ink);padding:clamp(40px,6vw,76px) var(--pad) 26px}
+.fcols{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(26px,4vw,52px);
+  max-width:1180px;margin:0 auto}
+.fcol h4{font-family:'Amiri',serif;font-size:16.5px;font-weight:400;color:var(--gold);margin:0 0 14px}
+.fcol a{display:block;font-size:13.5px;color:#C9C4BA;padding:5px 0;transition:color .2s}
+.fcol a:hover{color:var(--gold)}
+.flogo{text-align:center;margin:clamp(34px,5vw,58px) auto 0;max-width:1180px}
+.flogo img{width:118px;margin:0 auto;opacity:.95}
+.fsocial{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-top:26px}
+.fsocial a{font-size:12px;color:#C9C4BA}
+.fsocial a:hover{color:var(--gold)}
+.fbar{border-top:1px solid #343230;margin-top:28px;padding-top:18px;display:flex;flex-wrap:wrap;
+  gap:12px;justify-content:space-between;align-items:center;font-size:11.5px;color:#908B83;
+  max-width:1180px;margin-inline:auto}
+
+/* ---------- شاشات أوسع ---------- */
+@media (min-width:760px){
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .fcols{grid-template-columns:repeat(4,1fr)}
+  .wordmark .ar{font-size:28px}
+}
+@media (max-width:759px){
+  .hero{grid-template-columns:1fr}
+  .half{min-height:46vh}
+  .hero-logo{top:50%;width:132px}
+  .edi{grid-template-columns:1fr}
+  .craft{grid-template-columns:1fr;gap:34px}
+}
+/* احترام من يطلب تقليل الحركة */
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="flag">
+  معاينة الهويّة — الخلفيّات <b>نقشاتك من abaya-studio</b> موضوعةً مؤقّتاً مكان الصور.
+  لا صورة مستعارة من أي ماركة.
+</div>
+
+<div class="announce">
+  توصيل داخل قطر · الدفع عند الاستلام متاح <span>·</span> خياطة على القياس
+</div>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="hdr-side">
+      <button class="iconbtn" aria-label="القائمة">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <button class="iconbtn" aria-label="البحث">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      </button>
+    </div>
+
+    <a href="#" class="wordmark">
+      <div class="ar">الشيخة ستايل</div>
+      <div class="en latin">AL SHEIKHA STYLE</div>
+    </a>
+
+    <div class="hdr-side end">
+      <button class="iconbtn" aria-label="حسابي">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.8 4.2-5.5 7.5-5.5s6.1 1.7 7.5 5.5"/></svg>
+      </button>
+      <button class="iconbtn" aria-label="سلّة المشتريات">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9.2 7V5.6a2.8 2.8 0 0 1 5.6 0V7"/></svg>
+        <span class="cart-n num">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="#" class="on">الجديد</a>
+    <a href="#">عبايات</a>
+    <a href="#">جلابيات</a>
+    <a href="#">طرح وشيلات</a>
+    <a href="#">خياطة على القياس</a>
+    <a href="#">عروض</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <img class="hero-logo" src="brand/logo-gold-transparent.png" alt="الشيخة ستايل">
+
+  <div class="half dark">
+    <div class="motif"><img src="preview/img/motif-vine-1.svg" alt=""></div>
+    <div class="ph">مكان الصورة الأساسيّة</div>
+    <div class="half-body">
+      <h2 class="half-ttl">مجموعة السهرة</h2>
+      <a href="#" class="half-cta">تسوّقي الآن</a>
+    </div>
+  </div>
+
+  <div class="half light">
+    <div class="motif"><img src="preview/img/motif-vine-2.svg" alt=""></div>
+    <div class="ph">مكان الصورة الثانية</div>
+    <div class="half-body">
+      <h2 class="half-ttl">عبايات اليوم</h2>
+      <a href="#" class="half-cta">تسوّقي الآن</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-head">
+    <h2>وصل حديثاً</h2>
+    <p>قطع محدودة بخياطة يدويّة</p>
+    <div class="rule"></div>
+  </div>
+
+  <div class="grid">
+    <a href="#" class="card">
+      <div class="card-img">
+        <span class="card-tag">جديد</span>
+        <img class="m" src="preview/img/motif-vine-1.svg" alt="">
+        <span class="card-ph">صورة العباية</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">عباية نخبة مطرّزة</div>
+        <div class="card-meta">كريب ياباني · ٤ مقاسات</div>
+        <div class="card-price num">١٬٢٥٠ ر.ق</div>
+        <div class="swatches"><i class="sw" style="background:#1B1A19"></i><i class="sw" style="background:#4A3B2A"></i><i class="sw" style="background:#BA9D66"></i></div>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-img">
+        <img class="m" src="preview/img/motif-vine-2.svg" alt="">
+        <span class="card-ph">صورة العباية</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">عباية كلوش سادة</div>
+        <div class="card-meta">كريب مطفي · ٥ مقاسات</div>
+        <div class="card-price num">٦٨٠ ر.ق</div>
+        <div class="swatches"><i class="sw" style="background:#1B1A19"></i><i class="sw" style="background:#2C3A40"></i></div>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-img">
+        <span class="card-tag">خصم</span>
+        <img class="m" src="preview/img/motif-band-1.svg" alt="">
+        <span class="card-ph">صورة العباية</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">عباية شريط ذهبي</div>
+        <div class="card-meta">ساتان · ٣ مقاسات</div>
+        <div class="card-price num">٨٩٠ ر.ق <span class="was num">١٬١٥٠ ر.ق</span></div>
+        <div class="swatches"><i class="sw" style="background:#1B1A19"></i><i class="sw" style="background:#5A3E2B"></i><i class="sw" style="background:#6E6A66"></i></div>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-img">
+        <img class="m" src="preview/img/motif-vine-1.svg" alt="">
+        <span class="card-ph">صورة العباية</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">عباية فرع زهري</div>
+        <div class="card-meta">نقشة الشيخة · ٤ مقاسات</div>
+        <div class="card-price num">١٬٤٨٠ ر.ق</div>
+        <div class="swatches"><i class="sw" style="background:#1B1A19"></i><i class="sw" style="background:#BA9D66"></i></div>
+      </div>
+    </a>
+  </div>
+
+  <div style="text-align:center;margin-top:clamp(28px,4vw,46px)">
+    <a href="#" class="btn btn-ghost">كل العبايات</a>
+  </div>
+</section>
+
+<section class="edi">
+  <div class="edi-img">
+    <img src="preview/img/motif-band-1.svg" alt="">
+  </div>
+  <div class="edi-txt">
+    <h2>تُقاس عليك وحدك</h2>
+    <p>
+      أرسلي قياساتك مع الطلب — الطول والكتف وطول الكمّ — وتُخاط العباية
+      على مقاسك في ورشتنا. وإن احتجتِ مساعدة في القياس، فريقنا يرشدك خطوة بخطوة.
+    </p>
+    <div><a href="#" class="btn">ابدئي بالقياس</a></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="craft">
+    <div>
+      <img class="band" src="preview/img/motif-band-1.svg" alt="">
+      <h3>الأقمشة</h3>
+      <p>كريب ياباني وساتان مختارة باليد.</p>
+    </div>
+    <div>
+      <img class="band" src="preview/img/motif-vine-1.svg" alt="">
+      <h3>النقشة</h3>
+      <p>نقشات الشيخة مرسومة خاصّةً لنا.</p>
+    </div>
+    <div>
+      <img class="band" src="preview/img/motif-vine-2.svg" alt="">
+      <h3>الخياطة</h3>
+      <p>خياطة في ورشتنا، لا استيراد جاهز.</p>
+    </div>
+  </div>
+</section>
+
+<section class="news">
+  <h2>كوني أول من يرى الجديد</h2>
+  <form onsubmit="event.preventDefault();alert('هذه معاينة — التسجيل يعمل بعد الربط بشوبيفاي');">
+    <input type="email" placeholder="بريدك الإلكتروني" aria-label="بريدك الإلكتروني" required>
+    <button type="submit">تأكيد</button>
+  </form>
+  <small>قطع محدودة، ونُخبرك قبل أن تنتهي.</small>
+</section>
+
+<footer>
+  <div class="fcols">
+    <div class="fcol">
+      <h4>المتجر</h4>
+      <a href="#">الجديد</a>
+      <a href="#">عبايات</a>
+      <a href="#">جلابيات</a>
+      <a href="#">طرح وشيلات</a>
+    </div>
+    <div class="fcol">
+      <h4>خدمة العميلات</h4>
+      <a href="#">تواصلي معنا</a>
+      <a href="#">دليل القياسات</a>
+      <a href="#">الشحن والتوصيل</a>
+      <a href="#">الاستبدال والإرجاع</a>
+    </div>
+    <div class="fcol">
+      <h4>الشيخة ستايل</h4>
+      <a href="#">قصّتنا</a>
+      <a href="#">الورشة والخياطة</a>
+      <a href="#">فروعنا</a>
+      <a href="#">الشيخة قروب</a>
+    </div>
+    <div class="fcol">
+      <h4>أحكام</h4>
+      <a href="#">الشروط والأحكام</a>
+      <a href="#">سياسة الخصوصيّة</a>
+      <a href="#">سياسة الإرجاع</a>
+      <a href="#">طرق الدفع</a>
+    </div>
+  </div>
+
+  <div class="flogo">
+    <img src="brand/logo-gold-transparent.png" alt="الشيخة ستايل">
+  </div>
+
+  <div class="fsocial">
+    <span class="latin-sm" style="color:#BA9D66">Follow</span>
+    <a href="#">إنستقرام</a>
+    <a href="#">تيك توك</a>
+    <a href="#">سناب شات</a>
+    <a href="#">واتساب</a>
+  </div>
+
+  <div class="fbar">
+    <span>© <span class="num">2026</span> الشيخة ستايل — جميع الحقوق محفوظة</span>
+    <span>قطر · <span class="num">QAR</span> ر.ق</span>
+  </div>
+</footer>
+
+</body>
+</html>

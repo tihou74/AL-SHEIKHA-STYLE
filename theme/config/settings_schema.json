@@ -1,0 +1,505 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Abaya Atelier",
+    "theme_version": "1.0.0",
+    "theme_author": "متجر العبايات",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "الهوية والشعار",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "ارفع شعارك هنا. إن لم يكن عندك شعار بعد، سيُعرض اسم المتجر بخطّ العناوين."
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "الشعار (للخلفية الفاتحة)"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 60,
+        "max": 260,
+        "step": 10,
+        "unit": "px",
+        "label": "عرض الشعار",
+        "default": 130
+      },
+      {
+        "type": "image_picker",
+        "id": "logo_light",
+        "label": "الشعار (للخلفية الداكنة — الفوتر)"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "أيقونة المتصفّح (favicon)",
+        "info": "مربّعة، 512×512 بكسل"
+      },
+      {
+        "type": "text",
+        "id": "brand_tagline",
+        "label": "جملة الهوية القصيرة",
+        "default": "عبايات بخياطة تُقاس عليك"
+      }
+    ]
+  },
+  {
+    "name": "الألوان",
+    "settings": [
+      {
+        "type": "header",
+        "content": "الأساس"
+      },
+      {
+        "type": "color",
+        "id": "color_bg",
+        "label": "الخلفية",
+        "default": "#FAF8F4"
+      },
+      {
+        "type": "color",
+        "id": "color_ink",
+        "label": "النص الأساسي",
+        "default": "#1B1A19"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "النص الثانوي",
+        "default": "#6E6A66"
+      },
+      {
+        "type": "header",
+        "content": "اللون المميّز"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "اللون المميّز (الأزرار والروابط)",
+        "default": "#BA9D66",
+        "info": "ذهبي الشعار مقيساً من بكسلاته. للزينة والخلفيّات — لا يصلح لنصّ على خلفيّة فاتحة (2.44:1)."
+      },
+      {
+        "type": "color",
+        "id": "color_accent_ink",
+        "label": "نص فوق اللون المميّز",
+        "default": "#1B1A19",
+        "info": "يجب أن يكون داكناً: أبيض على الذهبي = 2.59:1 ولا يُقرأ، وداكن عليه = 6.71:1 ✓"
+      },
+      {
+        "type": "header",
+        "content": "أقسام داكنة"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_bg",
+        "label": "خلفية الفوتر والأقسام الداكنة",
+        "default": "#1B1A19"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_ink",
+        "label": "نص الأقسام الداكنة",
+        "default": "#F5F2EC"
+      },
+      {
+        "type": "header",
+        "content": "حالات"
+      },
+      {
+        "type": "color",
+        "id": "color_sale",
+        "label": "لون التخفيض",
+        "default": "#1B1A19"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "label": "لون التأكيد",
+        "default": "#2F6B4F"
+      },
+      {
+        "type": "color",
+        "id": "color_alt_bg",
+        "label": "خلفيّة الأقسام المتبادلة",
+        "default": "#F2EEE6"
+      },
+      {
+        "type": "color",
+        "id": "color_line",
+        "label": "لون الحدود الرقيقة",
+        "default": "#E6E1D8"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_text",
+        "label": "ذهبي للنصّ على خلفيّة فاتحة",
+        "default": "#8A6E3A",
+        "info": "ذهبي مغمَّق ليُقرأ — 4.53:1 على الأوف وايت"
+      }
+    ]
+  },
+  {
+    "name": "الخطوط",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "خطوط عربيّة مفتوحة الترخيص (OFL) — مسموح استخدامها تجاريّاً."
+      },
+      {
+        "type": "select",
+        "id": "font_heading",
+        "label": "خطّ العناوين",
+        "options": [
+          {
+            "value": "Reem Kufi",
+            "label": "ريم كوفي — كوفي حديث"
+          },
+          {
+            "value": "El Messiri",
+            "label": "المسيري — أنيق بلمسة شرقيّة"
+          },
+          {
+            "value": "Amiri",
+            "label": "أميري — نسخ كلاسيكي فخم"
+          },
+          {
+            "value": "Noto Kufi Arabic",
+            "label": "نوتو كوفي — هندسي صافٍ"
+          },
+          {
+            "value": "Changa",
+            "label": "تشانجا — عريض عصري"
+          },
+          {
+            "value": "Cairo",
+            "label": "القاهرة"
+          },
+          {
+            "value": "Almarai",
+            "label": "المرعي"
+          },
+          {
+            "value": "Readex Pro",
+            "label": "ريدكس برو"
+          },
+          {
+            "value": "Tajawal",
+            "label": "تجوال"
+          }
+        ],
+        "default": "Amiri"
+      },
+      {
+        "type": "select",
+        "id": "font_body",
+        "label": "خطّ النصوص",
+        "options": [
+          {
+            "value": "Almarai",
+            "label": "المرعي — الأوضح للقراءة"
+          },
+          {
+            "value": "Readex Pro",
+            "label": "ريدكس برو — مريح وواسع"
+          },
+          {
+            "value": "Cairo",
+            "label": "القاهرة"
+          },
+          {
+            "value": "Tajawal",
+            "label": "تجوال"
+          },
+          {
+            "value": "Noto Kufi Arabic",
+            "label": "نوتو كوفي"
+          },
+          {
+            "value": "El Messiri",
+            "label": "المسيري"
+          }
+        ],
+        "default": "Almarai"
+      },
+      {
+        "type": "range",
+        "id": "font_scale",
+        "min": 90,
+        "max": 120,
+        "step": 5,
+        "unit": "%",
+        "label": "مقياس حجم الخط",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "heading_letter_spacing",
+        "min": -2,
+        "max": 4,
+        "step": 1,
+        "unit": "px",
+        "label": "تباعد حروف العناوين",
+        "default": 0
+      },
+      {
+        "type": "checkbox",
+        "id": "heading_uppercase_latin",
+        "label": "العناوين اللاتينيّة بحروف كبيرة",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "الشكل العام",
+    "settings": [
+      {
+        "type": "range",
+        "id": "radius",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "label": "انحناء الزوايا",
+        "default": 0,
+        "info": "صفر = حواف حادّة (أفخم للعبايات). أكبر = أكثر ودّاً."
+      },
+      {
+        "type": "range",
+        "id": "button_radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "انحناء زوايا الأزرار",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "product_image_ratio",
+        "label": "نسبة صورة المنتج",
+        "options": [
+          {
+            "value": "0.75",
+            "label": "٣:٤ (شائع)"
+          },
+          {
+            "value": "0.6667",
+            "label": "٢:٣ (طويل — يبرز طول العباية)"
+          },
+          {
+            "value": "0.5",
+            "label": "١:٢ (طويل جداً)"
+          },
+          {
+            "value": "1",
+            "label": "مربّع"
+          }
+        ],
+        "default": "0.6667"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_page_transitions",
+        "label": "ظهور تدريجي للعناصر عند التمرير",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "بطاقات المنتجات",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "card_second_image",
+        "label": "إظهار الصورة الثانية عند مرور المؤشّر",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_vendor",
+        "label": "إظهار الماركة",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_swatches",
+        "label": "إظهار دوائر الألوان المتاحة",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "color_option_names",
+        "label": "أسماء خيار اللون",
+        "default": "اللون, لون, Color, Colour",
+        "info": "تُفصل بفاصلة. يُستخدم لمعرفة أيّ خيار هو اللون."
+      },
+      {
+        "type": "text",
+        "id": "size_option_names",
+        "label": "أسماء خيار المقاس",
+        "default": "المقاس, مقاس, القياس, Size",
+        "info": "تُفصل بفاصلة."
+      },
+      {
+        "type": "text",
+        "id": "length_option_names",
+        "label": "أسماء خيار الطول",
+        "default": "الطول, طول, Length",
+        "info": "تُفصل بفاصلة."
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_sale_badge",
+        "label": "إظهار شارة التخفيض",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_soldout_badge",
+        "label": "إظهار شارة «نفدت الكميّة»",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "القياسات والخياطة",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "خاصّ بمتاجر العبايات: جدول القياسات وملاحظة الخياطة على المقاس."
+      },
+      {
+        "type": "page",
+        "id": "size_guide_page",
+        "label": "صفحة دليل القياسات",
+        "info": "تُفتح في نافذة من صفحة المنتج."
+      },
+      {
+        "type": "text",
+        "id": "size_note",
+        "label": "ملاحظة تحت خيار المقاس",
+        "default": "الطول يُقاس من الكتف إلى أسفل العباية بالسنتيمتر."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_custom_measurements",
+        "label": "إتاحة الخياطة على القياس",
+        "default": true,
+        "info": "يظهر حقل ملاحظات للعميل ليكتب قياساته مع الطلب."
+      },
+      {
+        "type": "text",
+        "id": "custom_measurements_label",
+        "label": "عنوان حقل القياسات",
+        "default": "قياساتك (اختياري)"
+      },
+      {
+        "type": "text",
+        "id": "custom_measurements_placeholder",
+        "label": "النصّ التوضيحي في الحقل",
+        "default": "مثال: الطول 58، الكتف 40، طول الكمّ 60"
+      }
+    ]
+  },
+  {
+    "name": "واتساب والتواصل",
+    "settings": [
+      {
+        "type": "header",
+        "content": "واتساب"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "رقم الواتساب",
+        "info": "بالصيغة الدوليّة بلا + وبلا مسافات. مثال: 97412345678"
+      },
+      {
+        "type": "checkbox",
+        "id": "whatsapp_product_button",
+        "label": "زرّ «اسأل عن هذه العباية» في صفحة المنتج",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "whatsapp_float",
+        "label": "زرّ واتساب عائم في كل الصفحات",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "حسابات التواصل"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram",
+        "label": "إنستقرام"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok",
+        "label": "تيك توك"
+      },
+      {
+        "type": "url",
+        "id": "social_snapchat",
+        "label": "سناب شات"
+      },
+      {
+        "type": "url",
+        "id": "social_x",
+        "label": "إكس (تويتر)"
+      }
+    ]
+  },
+  {
+    "name": "السلّة",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "سلوك السلّة",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "تُفتح من الجانب (بلا مغادرة الصفحة)"
+          },
+          {
+            "value": "page",
+            "label": "تنتقل إلى صفحة السلّة"
+          }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_note_enabled",
+        "label": "إتاحة ملاحظة على الطلب",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "cart_shipping_note",
+        "label": "ملاحظة تحت المجموع",
+        "default": "الشحن والرسوم تُحسب في صفحة الدفع."
+      }
+    ]
+  },
+  {
+    "name": "تحسين الظهور (SEO)",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "صورة المشاركة الافتراضيّة",
+        "info": "تظهر عند مشاركة رابط المتجر. 1200×630 بكسل."
+      }
+    ]
+  }
+]

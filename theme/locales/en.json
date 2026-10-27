@@ -1,0 +1,147 @@
+{
+  "general": {
+    "a11y": {
+      "skip_to_content": "Skip to content",
+      "close": "Close",
+      "menu": "Menu",
+      "search": "Search",
+      "cart": "Cart",
+      "previous": "Previous",
+      "next": "Next",
+      "loading": "Loading"
+    },
+    "pagination": {
+      "label": "Pagination",
+      "page": "Page {{ page }}",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search abayas...",
+      "submit": "Search",
+      "results_with_count": {
+        "one": "1 result",
+        "other": "{{ count }} results"
+      },
+      "no_results": "No results for \"{{ terms }}\"",
+      "no_results_hint": "Try a shorter word, or browse the collections."
+    },
+    "newsletter": {
+      "email": "Your email",
+      "submit": "Subscribe",
+      "success": "Thanks for subscribing."
+    },
+    "not_found": {
+      "title": "Page not found",
+      "subtitle": "We could not find that link. The piece may be sold or the link has changed.",
+      "link": "Back to home"
+    },
+    "password_page": {
+      "title": "Opening soon",
+      "login_label": "Password",
+      "login_submit": "Enter",
+      "login_error": "Wrong password",
+      "enter_store": "Enter using password",
+      "admin_link": "Are you the store owner? Log in here"
+    },
+    "share": {
+      "label": "Share",
+      "copy_link": "Copy link",
+      "copied": "Link copied"
+    }
+  },
+  "header": {
+    "cart_count": {
+      "one": "1 item in cart",
+      "other": "{{ count }} items in cart"
+    },
+    "menu": "Menu",
+    "home": "Home"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "choose_option": "Choose {{ option }}",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "sale_badge": "{{ percent }}% off",
+      "save_amount": "Save {{ amount }}",
+      "quantity": "Quantity",
+      "increase": "Increase quantity",
+      "decrease": "Decrease quantity",
+      "size_guide": "Size guide",
+      "vendor": "Brand",
+      "sku": "SKU",
+      "description": "Description",
+      "in_stock": "In stock",
+      "low_stock": "Only a few left",
+      "out_of_stock": "Out of stock",
+      "whatsapp_ask": "Ask on WhatsApp",
+      "whatsapp_message": "Hello, I have a question about: {{ title }} — {{ url }}",
+      "view_full_details": "View full details",
+      "no_variant_selected": "Choose the options first",
+      "variant_unavailable": "This option is unavailable"
+    },
+    "card": {
+      "from_price": "From",
+      "colors_available": {
+        "one": "1 colour",
+        "other": "{{ count }} colours"
+      }
+    }
+  },
+  "collection": {
+    "all_products": "All abayas",
+    "empty": "No products in this collection yet.",
+    "empty_filtered": "No products match these filters.",
+    "product_count": {
+      "one": "1 product",
+      "other": "{{ count }} products"
+    },
+    "filters": {
+      "title": "Filter",
+      "apply": "Show results",
+      "clear": "Clear filter",
+      "clear_all": "Clear all",
+      "sort_by": "Sort by",
+      "price_from": "From",
+      "price_to": "To"
+    }
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "empty_cta": "Browse abayas",
+    "item": "Item",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "remove": "Remove",
+    "note": "Order note",
+    "note_placeholder": "Special instructions or address",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue shopping",
+    "update": "Update",
+    "added": "Added to cart",
+    "measurements": "Measurements"
+  },
+  "footer": {
+    "newsletter_title": "New arrivals first",
+    "newsletter_text": "Subscribe for new pieces and offers.",
+    "follow_us": "Follow us",
+    "quick_links": "Quick links",
+    "copyright": "All rights reserved",
+    "payment_methods": "Payment methods"
+  },
+  "blog": {
+    "read_more": "Read more",
+    "posted_on": "Posted on",
+    "by_author": "By {{ author }}",
+    "all_articles": "All articles"
+  }
+}
