@@ -65,13 +65,14 @@
         "type": "color",
         "id": "color_ink",
         "label": "النص الأساسي",
-        "default": "#1B1A19"
+        "default": "#3A2F22",
+        "info": "بنّي داكن دافئ لا أسود — الأسود ليس من هويّة المحل. تباين 12.30:1"
       },
       {
         "type": "color",
         "id": "color_muted",
         "label": "النص الثانوي",
-        "default": "#6E6A66"
+        "default": "#6B6050"
       },
       {
         "type": "header",
@@ -88,7 +89,7 @@
         "type": "color",
         "id": "color_accent_ink",
         "label": "نص فوق اللون المميّز",
-        "default": "#1B1A19",
+        "default": "#3A2F22",
         "info": "يجب أن يكون داكناً: أبيض على الذهبي = 2.59:1 ولا يُقرأ، وداكن عليه = 6.71:1 ✓"
       },
       {
@@ -98,14 +99,15 @@
       {
         "type": "color",
         "id": "color_dark_bg",
-        "label": "خلفية الفوتر والأقسام الداكنة",
-        "default": "#1B1A19"
+        "label": "خلفيّة الفوتر والأقسام المتبادلة",
+        "default": "#EBE4D7",
+        "info": "رملي دافئ. الهويّة أوف وايت + ذهبي، بلا أسود."
       },
       {
         "type": "color",
         "id": "color_dark_ink",
-        "label": "نص الأقسام الداكنة",
-        "default": "#F5F2EC"
+        "label": "نصّ الفوتر",
+        "default": "#3A2F22"
       },
       {
         "type": "header",
@@ -115,7 +117,7 @@
         "type": "color",
         "id": "color_sale",
         "label": "لون التخفيض",
-        "default": "#1B1A19"
+        "default": "#3A2F22"
       },
       {
         "type": "color",
@@ -127,13 +129,13 @@
         "type": "color",
         "id": "color_alt_bg",
         "label": "خلفيّة الأقسام المتبادلة",
-        "default": "#F2EEE6"
+        "default": "#F3EFE7"
       },
       {
         "type": "color",
         "id": "color_line",
         "label": "لون الحدود الرقيقة",
-        "default": "#E6E1D8"
+        "default": "#E2DACA"
       },
       {
         "type": "color",
@@ -141,6 +143,13 @@
         "label": "ذهبي للنصّ على خلفيّة فاتحة",
         "default": "#8A6E3A",
         "info": "ذهبي مغمَّق ليُقرأ — 4.53:1 على الأوف وايت"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_deep",
+        "label": "ذهبي غامق (على الخلفيّة الرمليّة)",
+        "default": "#7A6132",
+        "info": "يُقرأ على الرملي — 4.64:1"
       }
     ]
   },

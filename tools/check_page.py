@@ -14,20 +14,35 @@ VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link',
         'meta', 'param', 'source', 'track', 'wbr'}
 
 
+def load_pending(root: Path):
+    """أصول يُعرف أنها لم تُرفع بعد — تُستثنى من الخطأ وتُطبع دائماً."""
+    f = root / 'tools' / 'pending-assets.txt'
+    if not f.exists():
+        return set()
+    out = set()
+    for line in f.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if line and not line.startswith('#'):
+            out.add(line)
+    return out
+
+
 def check_refs(path: Path):
-    """كل src/href محلّي يجب أن يوجد على القرص."""
+    """كل src/href محلّي يجب أن يوجد، إلا ما كان معلناً في قائمة الانتظار."""
     html = path.read_text(encoding='utf-8')
     root = path.parent
+    pending = load_pending(root)
     refs = re.findall(r'(?:src|href)\s*=\s*"([^"]+)"', html)
-    problems, checked = [], 0
+    problems, waiting, checked = [], [], 0
     for r in refs:
         if r.startswith(('http://', 'https://', '//', '#', 'data:', 'mailto:', 'tel:')):
             continue
         checked += 1
-        target = (root / r.split('?')[0].split('#')[0]).resolve()
-        if not target.exists():
-            problems.append(r)
-    return checked, problems
+        clean = r.split('?')[0].split('#')[0]
+        if (root / clean).exists():
+            continue
+        (waiting if clean in pending else problems).append(clean)
+    return checked, problems, sorted(set(waiting))
 
 
 def check_tags(path: Path):
@@ -65,10 +80,18 @@ def check_rtl_rules(path: Path):
     """
     css = path.read_text(encoding='utf-8')
     errors, notes = [], []
-    for m in re.finditer(r'([^{}]*)\{([^}]*letter-spacing[^}]*)\}', css):
+    for m in re.finditer(r'([^{}]*)\{([^}]*)\}', css):
+        decls = re.findall(r'letter-spacing\s*:\s*([^;}]+)', m.group(2))
+        if not decls:
+            continue
+        # صفر أو normal لا يضرّ — بل هو إلغاء صريح للتباعد، فلا يُنذَر عنه
+        live = [d.strip() for d in decls
+                if d.strip().lower() not in ('0', '0px', '0em', '0rem', 'normal')]
+        if not live:
+            continue
         selector = m.group(1).strip().splitlines()[-1].strip()
         if 'latin' not in selector and 'num' not in selector:
-            errors.append(f'letter-spacing على محدّد غير لاتيني: «{selector}» — يقطع حروف العربيّة')
+            errors.append(f'letter-spacing: {live[0]} على «{selector}» — يقطع حروف العربيّة')
     for prop in ('margin-left', 'margin-right', 'padding-left', 'padding-right', 'left:', 'right:'):
         n = len(re.findall(r'[;{\s]' + re.escape(prop), css))
         if n:
@@ -85,17 +108,21 @@ def main(argv):
             failed = True
             continue
         print(f'=== {t} ===')
-        checked, missing = check_refs(t)
+        checked, missing, waiting = check_refs(t)
         if checked == 0:
             print('✗ لم يُفحص أي مرجع محلّي — الفحص نفسه معطوب، لا الصفحة')
             failed = True
         elif missing:
-            print(f'✗ مراجع مفقودة ({len(missing)} من {checked}):')
+            print(f'✗ مراجع مفقودة غير معلنة ({len(missing)} من {checked}):')
             for m in missing:
                 print('   -', m)
             failed = True
         else:
-            print(f'✓ كل المراجع المحلّية موجودة ({checked})')
+            print(f'✓ كل المراجع المحلّية موجودة أو معلنة ({checked})')
+        if waiting:
+            print(f'⏳ بانتظار رفع المالك ({len(waiting)}):')
+            for m in waiting:
+                print('   -', m)
 
         tag_problems = check_tags(t)
         if tag_problems:

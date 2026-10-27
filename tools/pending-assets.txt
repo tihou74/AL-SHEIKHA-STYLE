@@ -1,0 +1,15 @@
+# أصول متوقّعة من المالك ولم تُرفع بعد — مسار واحد في كل سطر.
+# الحارس يعدّها «بانتظار الرفع» لا خطأً، ويطبعها دائماً.
+# ⚠️ لا تُضَف هنا إلا الملفّات التي سيرفعها فعلاً. كل مسار آخر مفقود = خطأ يُسقط الفحص.
+brand/video/hero.mp4
+brand/photos/hero-poster.jpg
+brand/photos/hero-1.jpg
+brand/photos/hero-2.jpg
+brand/photos/p1.jpg
+brand/photos/p2.jpg
+brand/photos/p3.jpg
+brand/photos/p4.jpg
+brand/photos/p5.jpg
+brand/photos/p6.jpg
+brand/photos/editorial.jpg
+brand/photos/band.jpg
