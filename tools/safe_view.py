@@ -76,17 +76,38 @@ def dims_webp(data):
 
 
 def read_dims(path):
-    """ارجع (العرض, الارتفاع, الصيغة) أو (None, None, الصيغة) إن تعذّر."""
-    data = Path(path).read_bytes()[:4096]
-    for fmt, fn in (('jpeg', dims_jpeg), ('png', dims_png),
-                    ('gif', dims_gif), ('webp', dims_webp)):
-        try:
-            d = fn(data)
-        except Exception:
-            d = None
-        if d:
-            return d[0], d[1], fmt
-    return None, None, 'غير معروفة'
+    """ارجع (العرض, الارتفاع, الصيغة) أو (None, None, الصيغة) إن تعذّر.
+
+    يُقرأ الملفّ كاملاً لا أوّله: مقطع EXIF من فوتوشوب قد يتجاوز عشرات
+    الكيلوبايتات (مع صورة مصغّرة داخله) فتكون علامة SOF بعده — وقراءة
+    أوّل 4KB فقط كانت تُرجع «أبعاد غير مقروءة» على صور سليمة تماماً.
+    """
+    data = Path(path).read_bytes()
+
+    # تُحدَّد الصيغة ببصمة الملفّ لا بتجربة الفاكّات بالترتيب.
+    # السبب عطلٌ حقيقي وقع: بيانات PNG المضغوطة تحتوي بايتات تشبه علامات
+    # JPEG، فقرأ الفاكّ ملفّ PNG بأبعاد 57104×30464 — ولو جاء الخطأ في
+    # الاتجاه الآخر لمرّت صورة ضخمة كأنها آمنة وسقطت الجلسة.
+    if data[:3] == b'\xff\xd8\xff':
+        fmt, fn = 'jpeg', dims_jpeg
+    elif data[:8] == b'\x89PNG\r\n\x1a\n':
+        fmt, fn = 'png', dims_png
+    elif data[:3] == b'GIF':
+        fmt, fn = 'gif', dims_gif
+    elif data[:4] == b'RIFF' and data[8:12] == b'WEBP':
+        fmt, fn = 'webp', dims_webp
+    elif data[4:12] in (b'ftypheic', b'ftypheix', b'ftyphevc', b'ftypmif1'):
+        return None, None, 'HEIC — لا تعمل في المتصفّحات، تحتاج تحويلاً إلى JPG'
+    else:
+        return None, None, 'بصمة غير معروفة'
+
+    try:
+        d = fn(data)
+    except Exception as e:
+        return None, None, f'{fmt} معطوبة ({e})'
+    if not d:
+        return None, None, f'{fmt} — تعذّرت قراءة الأبعاد'
+    return d[0], d[1], fmt
 
 
 # ---------------------------- فكّ PNG ----------------------------

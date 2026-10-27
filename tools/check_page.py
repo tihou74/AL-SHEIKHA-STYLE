@@ -99,6 +99,29 @@ def check_rtl_rules(path: Path):
     return errors, notes
 
 
+def check_forbidden_colors(path: Path):
+    """ألوان رفضها المالك لا تعود بالسهو.
+
+    الملفّ هو مصدر الحقيقة، ويُتحقَّق أنّه قُرئ فعلاً: قائمة فارغة تعني
+    حارساً لا يفحص شيئاً ويُعلن النجاح دائماً — وذلك أسوأ من غيابه.
+    """
+    rules_file = path.parent / 'tools' / 'forbidden-colors.txt'
+    if not rules_file.exists():
+        return ['ملفّ الألوان الممنوعة غير موجود — الحارس لا يفحص شيئاً'], 0
+    rules = {}
+    # السطر قاعدةٌ فقط إن كان لوناً ست عشريّاً يتبعه جدولة — فلا تُقرأ
+    # أسطر الشرح (وهي تبدأ بـ# أيضاً) كأنّها قواعد
+    for line in rules_file.read_text(encoding='utf-8').splitlines():
+        m = re.match(r'^(#[0-9A-Fa-f]{3,8})\t+(.*)$', line.rstrip())
+        if m:
+            rules[m.group(1).upper()] = m.group(2).strip()
+    if not rules:
+        return ['لم تُقرأ أي قاعدة لون — الحارس معطوب لا الصفحة'], 0
+    text = path.read_text(encoding='utf-8').upper()
+    found = [f'{c} — {why}' for c, why in rules.items() if c in text]
+    return found, len(rules)
+
+
 def main(argv):
     targets = [Path(a) for a in argv[1:]] or [Path('index.html')]
     failed = False
@@ -143,6 +166,15 @@ def main(argv):
             print('✓ لا مخالفات RTL')
         for p in rtl_notes:
             print('⚠ ملاحظة:', p)
+
+        banned, n_rules = check_forbidden_colors(t)
+        if banned:
+            print('✗ ألوان رفضها المالك عادت إلى الصفحة:')
+            for b in banned:
+                print('   -', b)
+            failed = True
+        else:
+            print(f'✓ لا لون من الألوان المرفوضة ({n_rules} قاعدة مفحوصة)')
     return 1 if failed else 0
 
 
